@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Random Music Player</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+    }
+    h1 {
+      text-align: center;
+    }
+    #player {
+      margin: 0 auto;
+      display: block;
+      text-align: center;
+      width: 300px;
+      height: 150px;
+      background-color: #fff;
+      border: 1px solid #ccc;
+      padding: 10px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+    }
+    #player audio {
+      display: block;
+      margin: 0 auto;
+      width: 100%;
+    }
+    #player button {
+      margin-top: 10px;
+      background-color: #4CAF50;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    #song-title {
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    #song-info {
+      font-size: 12px;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Music player for music by Anders Lauge Meldgaard</h1>
+  <div id="player">
+    <audio id="audio" src=""></audio>
+    <button id="play">Play Random Song</button>
+    <div id="song-title"></div>
+    <div id="song-info"></div>
+  </div>
+  <script>
+    var audio = document.getElementById('audio');
+    var playButton = document.getElementById('play');
+    var songTitle = document.getElementById('song-title');
+    var songInfo = document.getElementById('song-info');
+    var songs = [
+
+      {src: 'musik/hilbillyJazz.mp3', title: 'HilbillyJazz feat. Lars Bech Pilgaard & Kristian Poulsen'}
+      // add more songs here
+    ];
+    playButton.addEventListener('click', function() {
+      var randomIndex = Math.floor(Math.random() * songs.length);
+      audio.src = songs[randomIndex].src;
+      songTitle.innerText = 'Now playing: ' + songs[randomIndex].title;
+      audio.play();
+      audio.addEventListener('loadedmetadata', function() {
+        var duration = Math.floor(audio.duration);
+        var minutes = Math.floor(duration / 60);
+        var seconds = duration - minutes * 60;
+        var durationString = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
+        songInfo.innerHTML = 
+                    'Duration: ' + durationString;
+      });
+    });
+  </script>
+</body>
+</html>
+
+
