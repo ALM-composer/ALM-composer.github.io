@@ -74,8 +74,14 @@ view on <a href="https://anderslaugemeldgaard.bandcamp.com/album/fragment-94">Ba
       </h2>
     </article>
   </main>
-  <footer>
-    2023
-  </footer>
+<div id="footer"></div>
+
+<script>
+fetch('/footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
 </body>
 </html>
