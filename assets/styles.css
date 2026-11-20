@@ -110,3 +110,81 @@ img {
   max-width: 100%;
   height: auto;
 }
+
+
+/* ---- Painted page backgrounds ----
+   Add two classes to a page's <body>: "has-bg" plus the image's class, e.g.
+   <body class="container has-bg bg-works">
+   --veil sets a white layer over the painting: 0 = full strength, 1 = plain white. */
+.has-bg::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.has-bg header {
+  background-color: transparent;
+}
+
+.bg-works::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,var(--veil, 0)), rgba(255,255,255,var(--veil, 0))),
+    url("bg-works.jpg");
+}
+
+.bg-671::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,var(--veil, 0)), rgba(255,255,255,var(--veil, 0))),
+    url("bg-671.jpg");
+}
+
+.bg-672::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,var(--veil, 0)), rgba(255,255,255,var(--veil, 0))),
+    url("bg-672.jpg");
+}
+
+.bg-673::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,var(--veil, 0)), rgba(255,255,255,var(--veil, 0))),
+    url("bg-673.jpg");
+}
+
+/* ---- Text pages: a see-through white "sheet" behind the text column ----
+   Add "has-sheet" to <body> on pages with long text. The painting stays at full
+   strength on both sides of the text. --sheet sets how white the sheet is (0-1). */
+html {
+  background-color: #fff;
+}
+
+.has-sheet {
+  background-color: rgba(255, 255, 255, var(--sheet, 0.8));
+  min-height: 100vh;
+}
+
+.has-sheet header {
+  background-color: rgba(255, 255, 255, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* Phones: the sheet covers the full width, so let more painting through
+   and add a soft light glow around the text to keep it readable. */
+@media (max-width: 600px) {
+  .has-sheet {
+    --sheet: 0.6;
+  }
+
+  .has-sheet header a,
+  .has-sheet main,
+  .has-sheet main a,
+  .has-sheet #footer {
+    text-shadow:
+      0 0 3px rgba(255, 255, 255, 0.95),
+      0 0 8px rgba(255, 255, 255, 0.8);
+  }
+}
