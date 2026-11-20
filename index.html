@@ -8,6 +8,26 @@
   <meta name="author" content="Anders Lauge Meldgaard">
   <link rel="stylesheet" href="assets/reset.css">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* ---- BACKGROUND TEST ----
+       Change --veil to adjust how strongly the white layer covers the painting:
+       0 = painting at full strength, 1 = plain white. */
+    :root { --veil: 0; }
+
+    /* Painted background sits on its own fixed layer (works on iPhones too) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255,255,255,var(--veil)), rgba(255,255,255,var(--veil))),
+        url("assets/bg-works.jpg") center / cover no-repeat;
+    }
+
+    /* Menu: soft white instead of solid, so the painting shows faintly through */
+    .container header { background-color: transparent; }
+  </style>
 </head>
 <body class='container'>
   <header>
