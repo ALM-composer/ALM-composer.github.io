@@ -9,27 +9,26 @@
   <link rel="stylesheet" href="../assets/reset.css">
   <link rel="stylesheet" href="../assets/styles.css">
   <style>
-    /* TEST: a see-through white background behind the text section under the mouse */
- .hover-blocks .block {
-  display: block;
-  margin: 0 -10px 5px;
-  padding: 6px 10px;
-  border-radius: 2px;
-  transition: background-color 0.25s ease;
-}
+    /* Shared styling for highlighted text blocks */
+    .hover-blocks .block {
+      display: block;
+      margin: 0 -10px 5px;
+      padding: 6px 10px;
+      border-radius: 2px;
+      transition: background-color 0.25s ease;
+    }
 
-/* Desktop hover */
-@media (hover: hover) {
-  .hover-blocks .block:hover {
-    background-color: rgba(255, 255, 255, 0.8);
-  }
-}
+    /* Desktop: highlight on mouse hover */
+    @media (hover: hover) and (pointer: fine) {
+      .hover-blocks .block:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
 
-/* Mobile tap */
-.hover-blocks .block.active {
-  background-color: rgba(255, 255, 255, 0.8);
-}
-      
+    /* Touch devices: highlight the paragraph that was tapped */
+    .hover-blocks .block.active {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
   </style>
 </head>
 <body class='container has-bg bg-671'>
@@ -73,6 +72,29 @@ fetch('/footer.html')
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
+</script>
+
+<script>
+  // On touch devices, tap a text block to highlight it.
+  // Tapping another block moves the highlight; tapping the same block removes it.
+  (() => {
+    const blocks = document.querySelectorAll('.hover-blocks .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (!touchDevice) return;
+
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+
+        blocks.forEach(item => item.classList.remove('active'));
+
+        if (!wasActive) {
+          block.classList.add('active');
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
