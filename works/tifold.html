@@ -18,10 +18,25 @@
       transition: background-color 0.25s ease;
     }
 
-    /* Only on devices with a real mouse (phones and tablets can't hover) */
-    @media (hover: hover) {
-      .hover-blocks .block:hover {
-        background-color: rgba(255, 255, 255, 0.8);
+ .hover-blocks .block {
+  display: block;
+  margin: 0 -10px 5px;
+  padding: 6px 10px;
+  border-radius: 2px;
+  transition: background-color 0.25s ease;
+}
+
+/* Desktop hover */
+@media (hover: hover) {
+  .hover-blocks .block:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Mobile tap */
+.hover-blocks .block.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
       }
     }
   </style>
