@@ -53,12 +53,12 @@ main nav a {
 }
 
 article h1 {
-  font-size: 14px;
+  font-size: 16px;
   text-align: justify;
 }
 
 article h2 { 
-  font-size: 14px;
+  font-size: 16px;
   text-align: justify;
 }
 
@@ -67,6 +67,7 @@ article p {
 }
 
 article blockquote {
+  font-size: 16px;
   font-style: italic;
   line-height: 1.4;
 }
