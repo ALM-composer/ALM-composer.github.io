@@ -53,6 +53,8 @@ main nav a {
 }
 
 article h1 {
+  font-size: 14px;
+  text-align: justify;
 }
 
 article h2 { 
