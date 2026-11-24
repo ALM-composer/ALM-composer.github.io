@@ -163,6 +163,12 @@ img {
     url("bg-675.jpg");
 }
 
+.bg-orgel::before {
+  background-image:
+    linear-gradient(rgba(255,255,255,var(--veil, 0)), rgba(255,255,255,var(--veil, 0))),
+    url("bg-orgel.jpg");
+}
+
 /* Painted pages: the menu has no background and scrolls away with the page,
    so it never covers the text. */
 html {
