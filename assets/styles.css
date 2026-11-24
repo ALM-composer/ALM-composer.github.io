@@ -175,3 +175,25 @@ html {
   -webkit-backdrop-filter: none;
   backdrop-filter: none;
 }
+
+
+/* ---- Hover highlight for text blocks ---- */
+article .block {
+  display: block;
+  margin: 0 -10px 5px;
+  padding: 6px 10px;
+  border-radius: 2px;
+  transition: background-color 0.25s ease;
+}
+
+/* Mouse hover */
+@media (hover: hover) and (pointer: fine) {
+  article .block:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+}
+
+/* Touchscreen highlight (toggled by the page's JavaScript) */
+article .block.active {
+  background-color: rgba(255, 255, 255, 0.8);
+}
