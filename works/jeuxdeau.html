@@ -8,6 +8,27 @@
   <meta name="author" content="Anders Lauge Meldgaard">
   <link rel="stylesheet" href="../assets/reset.css">
   <link rel="stylesheet" href="../assets/styles.css">
+
+<style>
+  article .block {
+    display: block;
+    margin: 0 -10px 5px;
+    padding: 6px 10px;
+    border-radius: 2px;
+    transition: background-color 0.25s ease;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    article .block:hover {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  }
+
+  article .block.active {
+    background-color: rgba(255, 255, 255, 0.8);
+  }
+</style>
+
 </head>
 <body class='container has-bg bg-672'>
   <header>
@@ -27,7 +48,7 @@
         
       </h1>
      <img src="images/jeuxdeau.png" />
-      <h2>
+      <h2><span class="block">
 JEUX D'EAU · 2025
 <br /> <br /> 
 “Jeux d’eau” is a collaboration between composer Anders Lauge Meldgaard and Copenhagen Clarinet Choir. Meldgaard participates as both composer and instrumentalist in the work, playing the New Ondomo – a modern Japanese version of the early French electronic musical instrument, Ondes Martenot. “Jeux d’Eau” emerged during Meldgaard’s visit to the gardens of Villa d’Este in Tivoli, Italy. The fountains in these gardens had previously inspired composers Franz Liszt and Maurice Ravel to write piano pieces titled Jeux d’Eau. Meldgaard uses motifs from these works as a starting point to create a new score for the clarinet choir, exploring the uncharted territory where the acoustic sound of the clarinet sextet meets the electronic sounds of New Ondomo, synthesizers, and samplers.
@@ -38,9 +59,9 @@ Led by Irish woodwind player Carolyn Goodwin, Copenhagen Clarinet Choir creates 
  <br /> <br />
  Composer and multi-instrumentalist Anders Lauge Meldgaard works in a broad range of musical expressions, from contemporary composition music to free improvisation, sound installations, electronic music, orchestral collage songwriting, eclectic mixtapes, noisy works for electric guitar sextet, and electronic music. The tension between composition and improvisation is often used as a motivating force behind his musical adventures. His musical universe has been exhibited and performed nationally and internationally, including at events such as Novas Frequências (Rio de Janeiro), SuperDeluxe (Tokyo), The Living Art Museum (Reykjavik), Cafe Oto (London), Grimm Museum (Berlin), Muziekgebouw (Amsterdam), By:Larm (Oslo), Inkonst (Malmö), Roskilde Festival, and Click Festival, as well as on tours in Europe, the USA, and Asia. He is a founding member of the record label and experimental music and composition collective År & Dag.
    <br /> <br />
-  </h1>
+  </span></h2>
      <img src="images/jeuxdeau2.png" />
-      <h2>
+      <h2><span class="block">
   <br /> <br />
   Lineup:
     <br /> <br />
@@ -53,7 +74,7 @@ Thanks to Kunstfonden, Koda Kultur og Dansk Komponistforening.
 
 <br />
  
-      </h2>
+      </span></h2>
     </article>
   </main>
 <div id="footer"></div>
@@ -66,11 +87,13 @@ fetch('/footer.html')
   });
 </script>
 <script>
-  document.querySelectorAll('article h2').forEach(block => {
-    block.addEventListener('click', () => {
-      block.classList.toggle('active');
+  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
+    document.querySelectorAll('article .block').forEach(block => {
+      block.addEventListener('click', () => {
+        block.classList.toggle('active');
+      });
     });
-  });
+  }
 </script>
 </body>
 </html>
