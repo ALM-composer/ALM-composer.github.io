@@ -65,5 +65,12 @@ fetch('/footer.html')
     document.getElementById('footer').innerHTML = data;
   });
 </script>
+<script>
+  document.querySelectorAll('article h2').forEach(block => {
+    block.addEventListener('click', () => {
+      block.classList.toggle('active');
+    });
+  });
+</script>
 </body>
 </html>
