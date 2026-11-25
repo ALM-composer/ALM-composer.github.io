@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="da">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Om</title>
+  <meta name="description" content="Anders Lauge Meldgaard, komponist, musiker, multiinstrumentalist">
+  <meta name="author" content="Anders Lauge Meldgaard">
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* Small language button */
+    .lang-switch {
+      text-align: right;
+      margin: 0 0 6px;
+    }
+
+    .lang-switch a {
+      display: inline-block;
+      padding: 5px 11px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color 0.25s ease;
+    }
+
+    .lang-switch a:hover,
+    .lang-switch a:focus-visible {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Text sections: highlighted on mouse hover (same as the Tifold page) */
+    .hover-blocks .block {
+      display: block;
+      margin: 0 -10px 5px;
+      padding: 6px 10px;
+      border-radius: 2px;
+      transition: background-color 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .hover-blocks .block:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    /* Touch devices: highlight the section that was tapped */
+    .hover-blocks .block.active {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
+</head>
+<body class='container has-bg bg-672'>
+  <header>
+    <nav>
+       <a href="./">Anders Lauge Meldgaard</a>
+       <span class='header-dot'>·</span>
+      <a href="works.html">works</a>
+      <span class='header-dot'>·</span>
+      <a href="about-da.html">about</a>
+      <span class='header-dot'>·</span>
+      <a href="music.html">listen</a>
+    </nav>
+  </header>
+  <main>
+    <article>
+      <p class="lang-switch"><a href="about.html" hreflang="en" lang="en">English</a></p>
+     <h1>
+      Om
+      </h1>
+
+        <figure class="about-portrait" style="margin: 1.5rem 0; max-width: 280px;">
+          <img src="photos/alm-portrait.jpg" alt="Portræt af Anders Lauge Meldgaard" style="display: block; width: 100%; height: auto;">
+        </figure>
+
+      <h2 class="hover-blocks">
+        <span class="block">
+Komponist og multiinstrumentalist Anders Lauge Meldgaard arbejder i et bredt felt af musikalske udtryk, bl.a. aleatorisk komposition, improvisation og åbne partiturer, ofte med ham selv som udøvende musiker i sine egne værker. Hans musik er svær at sætte i bås og beskrives ofte som legende, nyskabende, konceptuelt drevet, uforudsigelig og kalejdoskopisk. Da han er mindre optaget af stilistisk tilhørsforhold end af samspillet mellem materialer, er ALMs musik et sted, hvor akustiske og elektroniske instrumenter udfolder sig som en række lydlige forslag, med lige dele formelt eksperiment og intuitiv drift, og hvor struktur og spontanitet hele tiden forhandler med hinanden.
+        </span>
+        <span class="block">
+Er autodidakt komponist og har studeret saxofon på Rytmisk Musikkonservatorium i København. Har tidligere optrådt og udgivet anmelderroste albums under aliaset Frisk Frugt.
+        </span>
+        <span class="block">
+Hans seneste værker tæller Jeux d'eau (2025), The Art of Playing the Fantasia (2023) for elektronisk blæseinstrument (EWI) og eurorack-synthesizer, udgivet på det Los Angeles-baserede label Sun Ark, og Spirit (2025), komponeret til strygertrioen Halvcirkel og ALM på New Ondomo (en japansk version af en Ondes Martenot) og elektronik. Han er stiftende medlem af pladeselskabet og den eksperimenterende musik- og kompositionssammenslutning År & Dag i København. Hans musikalske univers er blevet vist og fremført både nationalt og internationalt, bl.a. på Real No Real (ES), Novas Frequências (Rio de Janeiro), SuperDeluxe (Tokyo), The Living Art Museum (Reykjavik), Cafe Oto (London), Grimm Museum (Berlin), Muziekgebouw (Amsterdam), By:Larm (Oslo), Inkonst (Malmö), Museet for Samtidskunst (Roskilde), Roskilde Festival og Click Festival, samt på turnéer i Europa, USA og Asien.
+        </span>
+        <span class="block">
+Priser og nomineringer: <br /> <br />
+Danish Music Awards Jazz 2022: nomineret som “Årets komponist” for værket Fragment 94, Anders Lauge Meldgaard & Halvcirkel. "Tifold af fri form og fælles motiv" vandt prisen for "årets eksperimenterende album 2021" og “12 instrumenter til Henning” blev nomineret til årets eksperimenterende udgivelse og årets komponist 2021 • Nomineret til Steppeulven 2019 som ”Årets komponist” • Den Europæiske Spejlbue nomineret til Nordic Music Prize 2016 • Nomineret til to Steppeulve som ”Årets musiker” og ”Årets komponist” i 2012 • Nomineret til to Steppeulve for ”Årets live navn” samt ”Årets musiker” i 2011 • Nomineret til Nordic Music Prize i 2011 for albummet Frisk Frugt – Dansktoppen møder Burkina Faso i det himmelblå rum hvor solen bor, suite.
+        </span>
+        <span class="block">
+Har modtaget arbejdslegater og støtte til projekter og udgivelser fra Statens Kunstfond, Djbfa, Koda, Dansk Komponistforening, Jazz Danmark og Art Music Denmark.
+        </span>
+      </h2>
+    </article>
+  </main>
+<div id="footer"></div>
+
+<script>
+fetch('/footer.html')
+  .then(response => response.text())
+  .then(data => {
+    document.getElementById('footer').innerHTML = data;
+  });
+</script>
+
+<script>
+  // On touch devices, tap a text section to highlight it.
+  // Tapping another section moves the highlight; tapping the same one removes it.
+  (() => {
+    const blocks = document.querySelectorAll('.hover-blocks .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (!touchDevice) return;
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+        blocks.forEach(item => item.classList.remove('active'));
+        if (!wasActive) block.classList.add('active');
+      });
+    });
+  })();
+</script>
+</body>
+</html>

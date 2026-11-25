@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="dk">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,6 +8,49 @@
   <meta name="author" content="Anders Lauge Meldgaard">
   <link rel="stylesheet" href="assets/reset.css">
   <link rel="stylesheet" href="assets/styles.css">
+  <style>
+    /* Small language button */
+    .lang-switch {
+      text-align: right;
+      margin: 0 0 6px;
+    }
+
+    .lang-switch a {
+      display: inline-block;
+      padding: 5px 11px;
+      border: 1px solid currentColor;
+      border-radius: 999px;
+      font-size: 12px;
+      line-height: 1;
+      text-decoration: none;
+      transition: background-color 0.25s ease;
+    }
+
+    .lang-switch a:hover,
+    .lang-switch a:focus-visible {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Text sections: highlighted on mouse hover (same as the Tifold page) */
+    .hover-blocks .block {
+      display: block;
+      margin: 0 -10px 5px;
+      padding: 6px 10px;
+      border-radius: 2px;
+      transition: background-color 0.25s ease;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .hover-blocks .block:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+      }
+    }
+
+    /* Touch devices: highlight the section that was tapped */
+    .hover-blocks .block.active {
+      background-color: rgba(255, 255, 255, 0.8);
+    }
+  </style>
 </head>
 <body class='container has-bg bg-672'>
   <header>
@@ -23,58 +66,33 @@
   </header>
   <main>
     <article>
+      <p class="lang-switch"><a href="about-da.html" hreflang="da" lang="da">Dansk</a></p>
      <h1>
       About
-      </h1>  
-     
+      </h1>
+
         <figure class="about-portrait" style="margin: 1.5rem 0; max-width: 280px;">
           <img src="photos/alm-portrait.jpg" alt="Portrait of Anders Lauge Meldgaard" style="display: block; width: 100%; height: auto;">
         </figure>
 
-      <h2>
-       <span class="block">
- Composer and multi-instrumentalist Anders Lauge Meldgaard works in a range of musical expressions, 
-         including aleatoric composition, improvisation and open-ended scores, often including himself as performer in his pieces. 
-         His music resists easy categorization, and is often described as playful, innovative, conceptually driven, 
-         unpredictable and kaleidoscopic. Being less concerned with stylistic allegiance than with the interplay of materials, 
-         the music of ALM is a place where acoustic and electronic instruments unfolds as a series of sonic proposals, 
-         with equal parts formal experiment and intuitive drift, where structure and spontaneity are in constant negotiation.  
-       </span>  
+      <h2 class="hover-blocks">
         <span class="block">
-
-A self-taught composer, he studied saxophone at the Rhythmic Music Conservatory in Copenhagen, and previously performed and
-          released critically acclaimed albums under the alias Frisk Frugt.
-         </span>  
+Composer and multi-instrumentalist Anders Lauge Meldgaard works in a range of musical expressions, including aleatoric composition, improvisation and open-ended scores, often including himself as performer in his pieces. His music resists easy categorization, and is often described as playful, innovative, conceptually driven, unpredictable and kaleidoscopic. Being less concerned with stylistic allegiance than with the interplay of materials, the music of ALM is a place where acoustic and electronic instruments unfold as a series of sonic proposals, with equal parts formal experiment and intuitive drift, where structure and spontaneity are in constant negotiation.
+        </span>
         <span class="block">
-           
-      His most recent works include Jeux d'eau (2025), The Art of Playing the Fantasia (2023) for Electronic Woodwind Instrument 
-          and eurorack synthesizer, released by Los Angeles based label Sun Ark, and Spirit (2025) composed for the string 
-          trio Halvcirkel and ALM performing on New Ondomo (a Japanese version of an Ondes Martenot) and electronics. 
-          He is a founding member of the record label and experimental music collective År & Dag, based in Copenhagen, Denmark. 
-          His musical universe has been exhibited and performed nationally and internationally, including at Real No Real (ES), 
-          Novas Frequências (Rio de Janeiro), SuperDeluxe (Tokyo), The Living Art Museum (Reykjavik), Cafe Oto (London), Grimm Museum
-          (Berlin), Muziekgebouw (Amsterdam), By:Larm (Oslo), Inkonst (Malmö), Museum of Contemporary Art (Roskilde), Roskilde Festival 
-          and Click Festival, as well as on tours in Europe, the USA and Asia.
-        </span>  
-        
-         <span class="block">
- Awards and nominations:    <br /> <br /> 
-Danish Music Awards Jazz 2022: nominated for Composer of the Year for Fragment 94 (Anders Lauge Meldgaard & Halvcirkel).
-           Tifold af fri form og fælles motiv won Experimental Album of the Year 2021, and 12 instrumenter til Henning 
-           (12 Instruments for Henning) was nominated for Experimental Release of the Year and Composer of the Year 2021 •
-           Nominated for Steppeulven 2019 as Composer of the Year • Den Europæiske Spejlbue (The European Mirror-Arch) 
-           nominated for the Nordic Music Prize 2016 • Nominated for two Steppeulve in 2012, as Musician of the Year and
-           Composer of the Year • Nominated for two Steppeulve in 2011, for Live Act of the Year and Musician of the Year •
-           Nominated for the Nordic Music Prize in 2011 for the album Frisk Frugt – Dansktoppen møder Burkina Faso i det himmelblå rum hvor solen bor, suite.
-
-        </span>   
+A self-taught composer, he studied saxophone at the Rhythmic Music Conservatory in Copenhagen, and previously performed and released critically acclaimed albums under the alias Frisk Frugt.
+        </span>
         <span class="block">
-Has received working grants and support for projects and releases from the Danish Arts Foundation (Statens Kunstfond), DJBFA, 
-          Koda and the Danish Composers' Society (Dansk Komponistforening), KODA, Jazz Danmark and Art Music Denmark.
-
- </span>  </h2>
-
-     </h2>
+His most recent works include Jeux d'eau (2025), The Art of Playing the Fantasia (2023) for Electronic Woodwind Instrument and eurorack synthesizer, released by Los Angeles based label Sun Ark, and Spirit (2025) composed for the string trio Halvcirkel and ALM performing on New Ondomo (a Japanese version of an Ondes Martenot) and electronics. He is a founding member of the record label and experimental music collective År & Dag, based in Copenhagen, Denmark. His musical universe has been exhibited and performed nationally and internationally, including at Real No Real (ES), Novas Frequências (Rio de Janeiro), SuperDeluxe (Tokyo), The Living Art Museum (Reykjavik), Cafe Oto (London), Grimm Museum (Berlin), Muziekgebouw (Amsterdam), By:Larm (Oslo), Inkonst (Malmö), Museum of Contemporary Art (Roskilde), Roskilde Festival and Click Festival, as well as on tours in Europe, the USA and Asia.
+        </span>
+        <span class="block">
+Awards and nominations: <br /> <br />
+Danish Music Awards Jazz 2022: nominated for Composer of the Year for Fragment 94 (Anders Lauge Meldgaard & Halvcirkel). Tifold af fri form og fælles motiv won Experimental Album of the Year 2021, and 12 instrumenter til Henning (12 Instruments for Henning) was nominated for Experimental Release of the Year and Composer of the Year 2021 • Nominated for Steppeulven 2019 as Composer of the Year • Den Europæiske Spejlbue (The European Mirror-Arch) nominated for the Nordic Music Prize 2016 • Nominated for two Steppeulve in 2012, as Musician of the Year and Composer of the Year • Nominated for two Steppeulve in 2011, for Live Act of the Year and Musician of the Year • Nominated for the Nordic Music Prize in 2011 for the album Frisk Frugt – Dansktoppen møder Burkina Faso i det himmelblå rum hvor solen bor, suite.
+        </span>
+        <span class="block">
+Has received working grants and support for projects and releases from the Danish Arts Foundation (Statens Kunstfond), DJBFA, Koda, the Danish Composers' Society (Dansk Komponistforening), Jazz Danmark and Art Music Denmark.
+        </span>
+      </h2>
     </article>
   </main>
 <div id="footer"></div>
@@ -85,6 +103,23 @@ fetch('/footer.html')
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
+</script>
+
+<script>
+  // On touch devices, tap a text section to highlight it.
+  // Tapping another section moves the highlight; tapping the same one removes it.
+  (() => {
+    const blocks = document.querySelectorAll('.hover-blocks .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+    if (!touchDevice) return;
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+        blocks.forEach(item => item.classList.remove('active'));
+        if (!wasActive) block.classList.add('active');
+      });
+    });
+  })();
 </script>
 </body>
 </html>
