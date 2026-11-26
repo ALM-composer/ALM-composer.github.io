@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="dk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anders Lauge Meldgaard - Works</title>
+  <meta name="description" content="Discover the music of Anders Lauge Meldgaard, Danish composer and multi-instrumentalist. Explore experimental compositions, album releases, improvisations, electronic music, sound art and collaborations.">
+  <meta name="author" content="Anders Lauge Meldgaard">
+  <link rel="stylesheet" href="assets/reset.css">
+  <link rel="stylesheet" href="assets/styles.css">
+  <link rel="icon" type="image/png" sizes="512x512" href="/lille-solstraale-favicon.png?v=3">
+  <link rel="shortcut icon" href="/favicon.ico?v=3">
+  <style>
+    /* ---- BACKGROUND TEST ----
+       Change --veil to adjust how strongly the white layer covers the painting:
+       0 = painting at full strength, 1 = plain white. */
+    :root { --veil: 0; }
+
+    /* Painted background sits on its own fixed layer (works on iPhones too) */
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      background:
+        linear-gradient(rgba(255,255,255,var(--veil)), rgba(255,255,255,var(--veil))),
+        url("assets/bg-works.jpg") center / cover no-repeat;
+    }
+
+    /* Menu: soft white instead of solid, so the painting shows faintly through */
+    .container header { background-color: transparent; }
+  </style>
+</head>
+<body class='container'>
+  <header>
+    <nav>
+      <a href="./">Anders Lauge Meldgaard</a>
+      <span class='header-dot'>·</span>
+      <a href="works.html">works</a>
+      <span class='header-dot'>·</span>
+      <a href="about.html">about</a>
+       <span class='header-dot'>·</span>
+      <a href="music.html">listen</a>
+    </nav>
+  </header>
+  <main>
+    <nav>
+      <h2>
+        Works
+      </h2>
+               <video autoplay loop muted playsinline>
+  <source src="assets/fountain-loop.webm" type="video/webm">
+</video>
+
+      </a>
+    </nav>
+
+  </main>
+  <footer>
+    2023
+  </footer>
+</body>
+</html>
