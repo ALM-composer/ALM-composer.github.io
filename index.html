@@ -48,31 +48,45 @@
   </header>
   <main>
     <article>
-     <br />
-      <h2>Welcome!</h2>
-      <p>
+      <h2>Welcome</h2>
+      <p><span class="block">
         I am a Danish composer and multi-instrumentalist working with open scores,
         experimental composition and improvisation, often combining acoustic and
         electronic instruments. I am most interested in the space between composed
-        form and spontaneous process, and in the unexpected relationships that can
+        form and spontaneous process, and in the unexpected relationships that
         emerge between musicians.
-      </p>
-      <p>
+      </span></p>
+      <p><span class="block">
         Recent projects include a choreographed piece for six guitars
-        <a href="works/Guitarden.html"><em>Guitarden of Eden</em></a>, music for a clarinet
-        choir and electronics <a href="works/jeuxdeau.html"><em>Jeux d'eau</em></a>, and a
+        (<a href="works/Guitarden.html"><em>Guitarden of Eden</em></a>), music for clarinet
+        choir and electronics (<a href="works/jeuxdeau.html"><em>Jeux d'eau</em></a>), and a
         work for an ensemble playing 3D-printed organ pipes
-        <a href="works/MultiplePipes.html"><em>Multiple Pipes for Major Players</em></a>.
+        (<a href="works/MultiplePipes.html"><em>Multiple Pipes for Major Players</em></a>).
         This site gathers my works and recordings. I hope you enjoy exploring it.
-      </p>
-      <p>
-        Best,<br />
+      </span></p>
+      <p><span class="block">
+        Kind regards,<br />
         Anders Lauge Meldgaard
-      </p>
+      </span></p>
     </article>
   </main>
   <footer>
     2023
   </footer>
+  <script>
+    // On touch devices, tap a text block to highlight it, matching AMC.html.
+    (() => {
+      const blocks = document.querySelectorAll('article .block');
+      const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+      if (!touchDevice) return;
+      blocks.forEach(block => {
+        block.addEventListener('click', () => {
+          const wasActive = block.classList.contains('active');
+          blocks.forEach(item => item.classList.remove('active'));
+          if (!wasActive) block.classList.add('active');
+        });
+      });
+    })();
+  </script>
 </body>
 </html>
