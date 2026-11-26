@@ -51,7 +51,7 @@ Anders Lauge Meldgaard ”At Synge Verden Ind I En Ny Og Mangefoldet tid” will
 <a href="../reviews/information_anmeldelse.pdf">Review</a> printed in Information on April 9th 2018 (in Danish)
 <br /> <br /> 
 <a href="https://passiveaggressive.dk/anders-lauge-meldgaard-3d-arabesker-igennem-forskudte-tider/">Review</a> from Passive/Aggressive - May 2018 (in Danish)
-<</span> 
+</span> 
       </h2>
     </article>
   </main>
@@ -63,6 +63,28 @@ fetch('/footer.html')
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
+</script>
+<script>
+  // On touch devices, tap a text block to highlight it.
+  // Tapping another block moves the highlight; tapping the same block removes it.
+  (() => {
+    const blocks = document.querySelectorAll('article .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (!touchDevice) return;
+
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+
+        blocks.forEach(item => item.classList.remove('active'));
+
+        if (!wasActive) {
+          block.classList.add('active');
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>

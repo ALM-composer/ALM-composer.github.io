@@ -139,5 +139,27 @@ fetch('/footer.html')
     document.getElementById('footer').innerHTML = data;
   });
 </script>
+<script>
+  // On touch devices, tap a text block to highlight it.
+  // Tapping another block moves the highlight; tapping the same block removes it.
+  (() => {
+    const blocks = document.querySelectorAll('article .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (!touchDevice) return;
+
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+
+        blocks.forEach(item => item.classList.remove('active'));
+
+        if (!wasActive) {
+          block.classList.add('active');
+        }
+      });
+    });
+  })();
+</script>
 </body>
 </html>

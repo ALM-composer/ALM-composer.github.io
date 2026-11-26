@@ -78,6 +78,7 @@ Complexity and playability. How can I write music that can be performed while mu
 The boundary between support and distraction. When does movement enhance the listening experience, and when does it draw attention away from the sound itself? I am interested in how movement can become an entrance into the auditory experience rather than a competitor to it. By experimenting with different degrees of movement, from almost imperceptible gestures to more pronounced spatial shifts, I want to investigate the point at which movement opens up the music — and the point at which it begins to interfere with it.
 
 </span>
+      </h2>
 
       <h2><span class="block">
     Performed by CRAS ENSEMBLE, Peter Oldrup, Henrik Bay Hansen, Mikkel
@@ -99,13 +100,26 @@ fetch('/footer.html')
   });
 </script>
 <script>
-  if (window.matchMedia('(hover: none), (pointer: coarse)').matches) {
-    document.querySelectorAll('article .block').forEach(block => {
+  // On touch devices, tap a text block to highlight it.
+  // Tapping another block moves the highlight; tapping the same block removes it.
+  (() => {
+    const blocks = document.querySelectorAll('article .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (!touchDevice) return;
+
+    blocks.forEach(block => {
       block.addEventListener('click', () => {
-        block.classList.toggle('active');
+        const wasActive = block.classList.contains('active');
+
+        blocks.forEach(item => item.classList.remove('active'));
+
+        if (!wasActive) {
+          block.classList.add('active');
+        }
       });
     });
-  }
+  })();
 </script>
 </body>
 </html>

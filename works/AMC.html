@@ -29,11 +29,9 @@
      <img src="images/AMC.png" />
       <h2>
          <br /> <br />
-A MAJOR CELEBRATION is a 45 minute composition by Aar & Dag and Polychrome. The piece is laid out as an open score on 30 unique instruction cards - two of which are included in the cover for the tape. The composition was performed in 3 iterations during 3 concerts by 33 artists at Bådehuset, Copenhagen on July 1st, 2023. The performances were recorded and layered in a triple exposure; 45 + 45 + 45 = 45 minutes.
- <br /> <br />
-Released December 7, 2024
- <br /> <br />
-JONATHAN AARDESTRUP · FRANCESCO BIGONI · TAUS BREGNHØJ-OLESEN · CALUM BUILDER · ELIOT CARDINAUX · IGNACIO CÓRDOBA · JASON DUNGAN · MARIA DYBBROE · ODA DYRNES · JONAS ENGEL · ANTHONY FAROUX · MADS FORSBY · NICOLAI GERSTENFELDT · CAROLYN GOODWIN · FELIA GRAM-HANSSEN · MARK IBSGAARD GREGERSEN · NIKOLA JAN GROSS · HENRIETTE GROTH · CLAUS HAXHOLM · ANJA JACOBSEN · TYGE JESSEN · ANNE GRY · FRIIS KRISTENSEN · HEINE THORHAUGE MATHIASEN · ANDERS LAUGE MELDGAARD · MICHAEL MØRKHOLT · JONAS OLESEN · ANDREAS PALLISGAARD · KRISTIAN PAULSEN · VINCENT YUEN RUIZ · JENNY GRAF SHEPPARD · JONAS STAMPE · IDA NØRBY SØRENSEN · ADAM WOER
+<span class="block">A MAJOR CELEBRATION is a 45 minute composition by Aar & Dag and Polychrome. The piece is laid out as an open score on 30 unique instruction cards - two of which are included in the cover for the tape. The composition was performed in 3 iterations during 3 concerts by 33 artists at Bådehuset, Copenhagen on July 1st, 2023. The performances were recorded and layered in a triple exposure; 45 + 45 + 45 = 45 minutes.</span>
+<span class="block">Released December 7, 2024</span>
+<span class="block">JONATHAN AARDESTRUP · FRANCESCO BIGONI · TAUS BREGNHØJ-OLESEN · CALUM BUILDER · ELIOT CARDINAUX · IGNACIO CÓRDOBA · JASON DUNGAN · MARIA DYBBROE · ODA DYRNES · JONAS ENGEL · ANTHONY FAROUX · MADS FORSBY · NICOLAI GERSTENFELDT · CAROLYN GOODWIN · FELIA GRAM-HANSSEN · MARK IBSGAARD GREGERSEN · NIKOLA JAN GROSS · HENRIETTE GROTH · CLAUS HAXHOLM · ANJA JACOBSEN · TYGE JESSEN · ANNE GRY · FRIIS KRISTENSEN · HEINE THORHAUGE MATHIASEN · ANDERS LAUGE MELDGAARD · MICHAEL MØRKHOLT · JONAS OLESEN · ANDREAS PALLISGAARD · KRISTIAN PAULSEN · VINCENT YUEN RUIZ · JENNY GRAF SHEPPARD · JONAS STAMPE · IDA NØRBY SØRENSEN · ADAM WOER</span>
  <br /> <br />
         <iframe style="border: 0; width: 100%; height: 42px;" src="https://bandcamp.com/EmbeddedPlayer/album=1165756833/size=small/bgcol=333333/linkcol=ffffff/artwork=none/track=3927319890/transparent=true/" seamless><a href="https://aardag.bandcamp.com/album/a-major-celebration">A MAJOR CELEBRATION by Aar &amp; Dag</a></iframe>
  <br /> <br />
@@ -51,6 +49,28 @@ fetch('/footer.html')
   .then(data => {
     document.getElementById('footer').innerHTML = data;
   });
+</script>
+<script>
+  // On touch devices, tap a text block to highlight it.
+  // Tapping another block moves the highlight; tapping the same block removes it.
+  (() => {
+    const blocks = document.querySelectorAll('article .block');
+    const touchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    if (!touchDevice) return;
+
+    blocks.forEach(block => {
+      block.addEventListener('click', () => {
+        const wasActive = block.classList.contains('active');
+
+        blocks.forEach(item => item.classList.remove('active'));
+
+        if (!wasActive) {
+          block.classList.add('active');
+        }
+      });
+    });
+  })();
 </script>
 </body>
 </html>
