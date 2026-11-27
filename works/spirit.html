@@ -98,39 +98,24 @@ fetch('/footer.html')
 </script>
 
 <script>
-  // Desktop: show the back while hovering, then restore the front.
-  // Touchscreens: tap to toggle between the front and back.
+  // Clicking (or pressing Enter/Space on) the Spirit cover shows its reverse.
   (() => {
     const cover = document.getElementById('spirit-cover');
     if (!cover) return;
 
-    const frontImage = 'images/spirit_cover.png';
-    const backImage = 'images/spirit_cover_back.png';
-    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
-
-    const showFront = () => {
-      cover.src = frontImage;
-      cover.alt = 'Spirit album cover';
-    };
-
     const showBack = () => {
-      cover.src = backImage;
+      cover.src = 'images/spirit_cover_back.png';
       cover.alt = 'Reverse side of the Spirit album cover';
+      cover.setAttribute('aria-label', 'Reverse side of the Spirit cover');
     };
 
-    if (isTouchDevice) {
-      let showingBack = false;
-      cover.addEventListener('click', () => {
-        showingBack = !showingBack;
-        if (showingBack) showBack();
-        else showFront();
-      });
-    } else {
-      cover.addEventListener('mouseenter', showBack);
-      cover.addEventListener('mouseleave', showFront);
-      cover.addEventListener('focus', showBack);
-      cover.addEventListener('blur', showFront);
-    }
+    cover.addEventListener('click', showBack);
+    cover.addEventListener('keydown', event => {
+      if (event.key === 'Enter' || event.key === ' ') {
+        event.preventDefault();
+        showBack();
+      }
+    });
   })();
 </script>
 
