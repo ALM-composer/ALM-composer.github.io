@@ -98,22 +98,34 @@ fetch('/footer.html')
 </script>
 
 <script>
-  // Clicking (or pressing Enter/Space on) the Spirit cover shows its reverse.
+  // Clicking (or pressing Enter/Space) toggles between the front and back covers.
   (() => {
     const cover = document.getElementById('spirit-cover');
     if (!cover) return;
 
-    const showBack = () => {
-      cover.src = 'images/spirit_cover_back.webp';
-      cover.alt = 'Reverse side of the Spirit album cover';
-      cover.setAttribute('aria-label', 'Reverse side of the Spirit cover');
+    const frontSrc = 'images/spirit_cover.webp';
+    const backSrc = 'images/spirit_cover_back.webp';
+    let showingBack = false;
+
+    const toggleCover = () => {
+      showingBack = !showingBack;
+      cover.src = showingBack ? backSrc : frontSrc;
+      cover.alt = showingBack
+        ? 'Reverse side of the Spirit album cover'
+        : 'Spirit album cover';
+      cover.setAttribute(
+        'aria-label',
+        showingBack
+          ? 'Show front side of the Spirit cover'
+          : 'Show reverse side of the Spirit cover'
+      );
     };
 
-    cover.addEventListener('click', showBack);
+    cover.addEventListener('click', toggleCover);
     cover.addEventListener('keydown', event => {
       if (event.key === 'Enter' || event.key === ' ') {
         event.preventDefault();
-        showBack();
+        toggleCover();
       }
     });
   })();
