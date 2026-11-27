@@ -25,7 +25,7 @@
     <article>
       <h1>
           </h1>
-     <img src="images/spirit_cover.png" />
+     <img id="spirit-cover" src="images/spirit_cover.png" alt="Spirit album cover" role="button" tabindex="0" aria-label="Show reverse side of the Spirit cover" style="cursor: pointer;" />
       <h2>
  <span class="block">
 SPIRIT · 2025
@@ -96,5 +96,43 @@ fetch('/footer.html')
     });
   })();
 </script>
+
+<script>
+  // Desktop: show the back while hovering, then restore the front.
+  // Touchscreens: tap to toggle between the front and back.
+  (() => {
+    const cover = document.getElementById('spirit-cover');
+    if (!cover) return;
+
+    const frontImage = 'images/spirit_cover.png';
+    const backImage = 'images/spirit_cover_back.png';
+    const isTouchDevice = window.matchMedia('(hover: none), (pointer: coarse)').matches;
+
+    const showFront = () => {
+      cover.src = frontImage;
+      cover.alt = 'Spirit album cover';
+    };
+
+    const showBack = () => {
+      cover.src = backImage;
+      cover.alt = 'Reverse side of the Spirit album cover';
+    };
+
+    if (isTouchDevice) {
+      let showingBack = false;
+      cover.addEventListener('click', () => {
+        showingBack = !showingBack;
+        if (showingBack) showBack();
+        else showFront();
+      });
+    } else {
+      cover.addEventListener('mouseenter', showBack);
+      cover.addEventListener('mouseleave', showFront);
+      cover.addEventListener('focus', showBack);
+      cover.addEventListener('blur', showFront);
+    }
+  })();
+</script>
+
 </body>
 </html>
